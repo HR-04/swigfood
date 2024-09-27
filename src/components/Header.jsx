@@ -1,5 +1,8 @@
 import React,{useState} from 'react'
 import { RxCaretDown } from "react-icons/rx";
+import { IoIosSearch } from "react-icons/io";
+import { CiDiscount1 } from "react-icons/ci";
+
 
 export default function Header() {
   const [toggle,setToggle] = useState(false);
@@ -10,6 +13,20 @@ export default function Header() {
   const hideSideMenu = () => {
     setToggle(false);
   }
+  const links = [
+    {
+      icon:<IoIosSearch />,
+      name: "Search"
+    },
+    {
+      icon:<CiDiscount1 />,
+      name: "Offers"
+    },
+    {
+      icon:"",
+      name:"Help"
+    }
+  ]
 
   return (
     <>
@@ -34,6 +51,20 @@ export default function Header() {
           <span className='font-bold border-b-[3px] border-black '>Madurai</span> 
           Tamil Nadu, India <RxCaretDown onClick={showSideMenu} fontSize={25} className='inline font-bold text-[#fc8019] cursor-pointer'/>
         </div>
+        <nav className='flex list-none gap-5 border border-black ml-auto font-semibold text-[18px]'>
+          {
+            links.map(
+              (link,index)=>{
+                return <li className='flex items-center gap-2'>
+                {link.icon}
+                  {link.name}
+                </li>
+              }
+            )
+          }
+          
+
+        </nav>
       </div>
     </header>
   </>
