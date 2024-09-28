@@ -55,7 +55,7 @@ export default function Header() {
           {
             links.map(
               (link,index)=>{
-                return <li className='flex items-center gap-2'>
+                return <li key={index} className='flex hover:text-[#fc8019] items-center gap-2'>
                 {link.icon}
                   {link.name}
                 </li>
