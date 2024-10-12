@@ -20,11 +20,21 @@ export default function Header() {
     },
     {
       icon:<CiDiscount1 />,
-      name: "Offers"
+      name: "Offers",
+      sup:"New"
     },
     {
       icon:"",
       name:"Help"
+    },
+    {
+      icon:"",
+      name:"Sign In"
+    },
+    {
+      icon:"",
+      name:"Cart",
+      sup:"(0)"
     }
   ]
 
@@ -43,21 +53,22 @@ export default function Header() {
       </div>
     </div>
     <header className='p-[15px] shadow-xl'>
-      <div className='max-w-[1200px] mx-auto border border-red-500 flex items-center '>
-        <div className='w-[100px] border border-blue-500 '>
+      <div className='max-w-[1200px] mx-auto flex items-center '>
+        <div className='w-[100px] '>
           <img src="images/logo.png" className= 'w-full' alt="" />
         </div>
         <div className=''>
           <span className='font-bold border-b-[3px] border-black '>Madurai</span> 
           Tamil Nadu, India <RxCaretDown onClick={showSideMenu} fontSize={25} className='inline font-bold text-[#fc8019] cursor-pointer'/>
         </div>
-        <nav className='flex list-none gap-5 border border-black ml-auto font-semibold text-[18px]'>
+        <nav className='flex list-none gap-5 ml-auto font-semibold text-[18px]'>
           {
             links.map(
               (link,index)=>{
-                return <li key={index} className='flex hover:text-[#fc8019] items-center gap-2'>
+                return <li key={index} className='flex cursor-pointer hover:text-[#fc8019] items-center gap-2'>
                 {link.icon}
                   {link.name}
+                  <sup>{link.sup}</sup>
                 </li>
               }
             )
