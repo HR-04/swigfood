@@ -42,7 +42,8 @@ export default function Header() {
     <>
     <div className='black-overlay w-full h-full fixed duration-500' onClick={hideSideMenu} style={{
       opacity:toggle ? 1 : 0,
-      visibility: toggle ? "visible" : "hidden"
+      visibility: toggle ? "visible" : "hidden",
+      zIndex:9999999
     }}>
       <div onClick={(e) =>{
         e.stopPropagation();
@@ -52,7 +53,7 @@ export default function Header() {
         
       </div>
     </div>
-    <header className='p-[15px] shadow-xl'>
+    <header className='p-[15px] shadow-xl sticky top-0 bg-white z-[9999]'>
       <div className='max-w-[1200px] mx-auto flex items-center '>
         <div className='w-[100px] '>
           <img src="images/logo.png" className= 'w-full' alt="" />
@@ -61,7 +62,8 @@ export default function Header() {
           <span className='font-bold border-b-[3px] border-black '>Madurai</span> 
           Tamil Nadu, India <RxCaretDown onClick={showSideMenu} fontSize={25} className='inline font-bold text-[#fc8019] cursor-pointer'/>
         </div>
-        <nav className='flex list-none gap-5 ml-auto font-semibold text-[18px]'>
+        <nav className=' hidden md:flex list-none gap-5 ml-auto font-semibold text-[18px]'>
+          
           {
             links.map(
               (link,index)=>{
